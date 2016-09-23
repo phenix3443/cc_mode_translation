@@ -1,0 +1,36 @@
+# -*- coding:utf-8 -*-
+#+title:CC mode manual
+#+author:刘尚亮
+#+email:phenix3443@gmail.com
+
+CC Mode is a GNU Emacs mode for editing files containing C, C++, Objective-C, Java, CORBA IDL (and the variants PSDL and CIDL), Pike and AWK code. It provides syntax-based indentation, font locking, and has several handy commands and some minor modes to make the editing easier. It does not provide tools to look up and navigate between functions, classes, etc.; there are other packages for that.
+
+CC Mode 是一个 GNU Emacs mode，用来编辑包含 C，C++，Objective-C，Java，CORBA IDL（PSDL 和 CIDL 的变种），Pike 和 AWK mode 的文件。它提供基于语法的缩进，font locking，并且有一些方便的命令和一些副模式使编辑更容易。它不提供在函数、类等之间进行查找和导航的工具。另外的包做这些。
+
+This manual is for CC Mode in Emacs.
+
+该手册针对 Emacs 中的 CC Mode。
+
+* Introduction
+* Overview
+* Getting Started
+* Commands
+* Font Locking
+* Config Basics
+* Custom Filling and Breaking
+* Custom Auto-newlines
+* Clean-ups
+* Indentation Engine Basics
+* Customizing Indentation
+* Custom Macros
+* Odds and Ends
+* Sample Init File
+* Performance Issues
+* Limitations and Known Bugs
+* FAQ
+* Updating CC Mode
+* Mailing Lists and Bug Reports
+* GNU Free Documentation License
+* Command and Function Index
+* Variable Index
+* Concept and Key Index

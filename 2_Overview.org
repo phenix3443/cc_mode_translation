@@ -1,0 +1,55 @@
+# -*- coding:utf-8 -*-
+#+author:刘尚亮
+#+email:phenix3443@gmail.com
+
+* Overview of the Manual
+
+  The manual starts with several introductory chapters (including this one).
+
+  该手册以几个介绍的章节开始（包括本章）。
+
+  The next chunk of the manual describes the day to day use of CC Mode (as contrasted with how to customize it).
+
+  手册接下的部分描述 CC Mode 的日常使用（与之相对的如何定制它）
+
+  + The chapter “Commands” describes in detail how to use (nearly) all of CC Mode’s features. There are extensive cross-references from here to the corresponding sections later in the manual which tell you how to customize these features.
+
+	“Commands”一章详细描述如何使用（几乎）CC Mode 的所有功能。也有一些扩展的交叉引用到手册后面的章节，告诉你如何定制这些功能。
+
+  + “Font Locking” describes how “syntax highlighting” is applied to your buffers. It is mainly background information and can be skipped over at a first reading.
+
+	“Font Locking”描述如何在 buffer 中应用“语法高亮”。首次阅读的时候可以跳过的背景信息。
+
+  The next chunk of the manual describes how to customize CC Mode. Typically, an overview of a topic is given at the chapter level, then the sections and subsections describe the material in increasing detail.
+
+  手册下面的部分描述了如何定制 CC Mode。通常情况下，每章层面有一个对该主题的概述，之后的章节逐渐详细描述材料。
+
+  + The chapter “Configuration Basics” tells you how to write customizations: whether in hooks, in styles, in both, or in neither, depending on your needs. It describes the CC Mode style system and lists the standard styles that CC Mode supplies.
+
+	“Configuration Basics”一章告诉如何编写自定义配置：不管使用 hook 或者 style，或者两者都选或都不选，根据需求采用。它描述 CC Mode 风格系统，列出 CC Mode 提供的所有标准风格。
+
+  + The next few chapters describe in detail how to customize the various features of CC Mode.
+
+	接下来的几张详细描述如何自定义 CC Mode 的各种功能。
+
+  + Finally, there is a sample .emacs fragment, which might help you in creating your own customization.
+
+	最后，有各.emacs 片段作为例子可能有助于你创建自己的配置。
+
+  The manual ends with “this and that”, things that don’t fit cleanly into any of the previous chunks.
+
+  手册以“this and that”结束，包含不能明确分配到之前部分的内容。
+
+  + Two chapters discuss the performance of CC Mode and known bugs/limitations.
+
+	两个章节讨论 CC Mode 的性能和已知的 bugs/限制。
+
+  + The FAQ contains a list of common problems and questions.
+
+	FAQ 包含一系列的常见问题。
+
+  + The next two chapters tell you how to get in touch with the CC Mode project: whether for updating CC Mode or submitting bug reports.
+
+	接下来的两个章节介绍如何接触 CC Mode 项目：不管是更新 CC Mode 或提交 bug 报告。
+
+  Finally, there are the customary indices.

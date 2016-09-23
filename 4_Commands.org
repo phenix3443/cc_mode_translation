@@ -1,0 +1,82 @@
+# -*- coding:utf-8 -*-
+#+author:刘尚亮
+#+email:phenix3443@gmail.com
+
+* Commands
+
+  This chapter specifies all of CC Mode’s commands, and thus contains nearly everything you need to know to use CC Mode (as contrasted with configuring it). Commands here means both control key sequences and electric keys, these being characters such as ‘;’ which, as well as inserting themselves into the buffer, also do other things.
+
+  You might well want to review Moving by Parens in GNU Emacs Manual, which describes commands for moving around brace and parenthesis structures.
+
+** Indentation Commands
+
+   The following commands reindent C constructs. Note that when you change your coding style, either interactively or through some other means, your file does not automatically get reindented. You will need to execute one of the following commands to see the effects of your changes.
+
+   Also, variables like c-hanging-* and c-cleanup-list (see Custom Auto-newlines) only affect how on-the-fly code is formatted. Changing the “hanginess” of a brace and then reindenting, will not move the brace to a different line. For this, you’re better off getting an external program like GNU indent, which will rearrange brace location, amongst other things.
+
+   Preprocessor directives are handled as syntactic whitespace from other code, i.e., they can be interspersed anywhere without affecting the indentation of the surrounding code, just like comments.
+
+   The code inside macro definitions is, by default, still analyzed syntactically so that you get relative indentation there just as you’d get if the same code was outside a macro. However, since there is no hint about the syntactic context, i.e., whether the macro expands to an expression, to some statements, or perhaps to whole functions, the syntactic recognition can be wrong. CC Mode manages to figure it out correctly most of the time, though.
+
+   Some macros, when invoked, ”have their own semicolon”. To get the next line indented correctly, rather than as a continuation line, See Macros with ;.
+
+   Reindenting large sections of code can take a long time. When CC Mode reindents a region of code, it is essentially equivalent to hitting TAB on every line of the region.
+
+   These commands indent code:
+
+   + TAB (c-indent-command)
+
+	 This command indents the current line. That is all you need to know about it for normal use.
+
+	 c-indent-command does different things, depending on the setting of c-syntactic-indentation (see Indentation Engine Basics):
+
+	 - When it’s non-nil (which it normally is), the command indents the line according to its syntactic context. With a prefix argument (C-u TAB), it will re-indent the entire expression[fn:3] that begins at the line’s left margin.
+
+	 - When it’s nil, the command indents the line by an extra c-basic-offset columns. A prefix argument acts as a multiplier. A bare prefix (C-u TAB) is equivalent to -1, removing c-basic-offset columns from the indentation.
+
+   	 The precise behavior is modified by several variables: With c-tab-always-indent, you can make 	TAB insert whitespace in some circumstances—c-insert-tab-function then defines precisely what sort of “whitespace” this will be. Set the standard Emacs variable indent-tabs-mode to t if you want real ‘tab’ characters to be used in the indentation, to nil if you want only spaces. See Just Spaces in GNU Emacs Manual.
+
+   	 + User Option: c-tab-always-indent
+
+	   This variable modifies how TAB operates.
+	   - When it is t (the default), TAB simply indents the current line.
+
+	   - When it is nil, TAB (re)indents the line only if point is to the left of the first non-whitespace character on the line. Otherwise it inserts some whitespace (a tab or an equivalent number of spaces; see below) at point.
+
+	   - With some other value, the line is reindented. Additionally, if point is within a string or comment, some whitespace is inserted.
+	 + User Option: c-insert-tab-function
+
+	   When “some whitespace” is inserted as described above, what actually happens is that the function stored in c-insert-tab-function is called. Normally, this is insert-tab, which inserts a real tab character or the equivalent number of spaces (depending on indent-tabs-mode). Some people, however, set c-insert-tab-function to tab-to-tab-stop so as to get hard tab stops when indenting.
+
+   The kind of indentation the next five commands do depends on the setting of c-syntactic-indentation (see Indentation Engine Basics):
+   + when it is non-nil (the default), the commands indent lines according to their syntactic context;
+   + when it is nil, they just indent each line the same amount as the previous non-blank line. The commands that indent a region aren’t very useful in this case.
+
+   + C-M-q (c-indent-exp)
+
+	 Indents an entire balanced brace or parenthesis expression. Note that point must be on the opening brace or parenthesis of the expression you want to indent.
+
+   + C-c C-q (c-indent-defun)
+	 Indents the entire top-level function, class or macro definition encompassing point. It leaves point unchanged. This function can’t be used to reindent a nested brace construct, such as a nested class or function, or a Java method. The top-level construct being reindented must be complete, i.e., it must have both a beginning brace and an ending brace.
+
+   + C-M-\ (indent-region)
+
+	 Indents an arbitrary region of code. This is a standard Emacs command, tailored for C code in a CC Mode buffer. Note, of course, that point and mark must delineate the region you want to indent.
+
+   + C-M-h (c-mark-function)
+
+	 While not strictly an indentation command, this is useful for marking the current top-level function or class definition as the current region. As with c-indent-defun, this command operates on top-level constructs, and can’t be used to mark say, a Java method.
+
+   These variables are also useful when indenting code:
+   + User Option: indent-tabs-mode
+
+	 This is a standard Emacs variable that controls how line indentation is composed. When it’s non-nil, tabs can be used in a line’s indentation, otherwise only spaces are used.
+
+   + User Option: c-progress-interval
+
+	 When indenting large regions of code, this variable controls how often a progress message is displayed. Set this variable to nil to inhibit the progress messages, or set it to an integer which is how often (in seconds) progress messages are to be displayed.
+
+
+* Footnotes
+
+[fn:3] this is only useful for a line starting with a comment opener or an opening brace, parenthesis, or string quote.

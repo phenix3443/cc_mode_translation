@@ -1,0 +1,33 @@
+# -*- coding:utf-8 -*-
+#+author:刘尚亮
+#+email:phenix3443@gmail.com
+
+* Introduction
+
+  Welcome to CC Mode, a GNU Emacs mode for editing files containing C, C++, Objective-C, Java, CORBA IDL (and the variants CORBA PSDL and CIDL), Pike and AWK code. This incarnation of the mode is descended from c-mode.el (also called “Boring Old C Mode” or BOCM :-), c++-mode.el version 2, which Barry Warsaw had been maintaining since 1992, and awk-mode.el, a long neglected mode in the (X)Emacs base.
+
+  欢迎来到 CC Mode，一个用来编辑包含 C，C++，Objective-C，Java，CORBA IDL（PSDL 和 CIDL 的变种），Pike 和 AWK mode 的文件的 GNU Emacs 模式。该模式继承于 c-mode.el（也叫“Boring Old C Mode” 或者 BOCM :-）, 自从 1992 年后由 Barry Warsaw 一直维护的 c++-mode.el version 2，和在(x)Emacs 中长期忽视的模式：awk-mode.el。
+
+  Late in 1997, Martin Stjernholm joined Barry on the CC Mode Maintainers Team, and implemented the Pike support. In 2000 Martin took over as the sole maintainer. In 2001 Alan Mackenzie joined the team, implementing AWK support in version 5.30. CC Mode did not originally contain the font lock support for its languages; that was added in version 5.30.
+
+  1997 年晚些时候，Martin Stjernholm 加入 Barry 的 CC Mode 维护团队，并实现了 Pike 支持。在 2000 年，Martin 称为唯一的维护者。20001 年 Alan Mackenzie 加入团队，在 5.30 版本中实现了 AWK 支持。CC Mode 最初没有对其语言包含 font lock 支持；在 5.30 版本中才加入。
+
+  This manual describes CC Mode version 5.32.
+
+  该手册描述 CC Mode 5.32 版本。
+
+  CC Mode supports the editing of C, C++, Objective-C, Java, CORBA’s Interface Definition Language, Pike[fn:1] and AWK files. In this way, you can easily set up consistent font locking and coding styles for use in editing all of these languages, although AWK is not yet as uniformly integrated as the other languages.
+
+  CC Mode 支持编辑 C，C++，Objective-C，Java，CORBA 的接口定义语言，Pike[fn:1]，和 AWK 文件。通过这种方式，你可以容易建立一致的、用于编辑所有这些语言的 font locking 和代码风格，尽管 AWK 尚未像其他语言一样统一集成。
+
+  Note that the name of this package is “CC Mode”, but there is no top level cc-mode entry point. All of the variables, commands, and functions in CC Mode are prefixed with c-thing, and c-mode, c++-mode, objc-mode, java-mode, idl-mode, pike-mode, and awk-mode entry points are provided. This package is intended to be a replacement for c-mode.el, c++-mode.el and awk-mode.el.
+
+  注意这个包的名字是“CC Mode”，但是没有顶层的 cc-mode 入口点。CC Mode 中提供的所有的变量、命令和函数都以 c-thing，c-mode，c++-mode，objc-mode，java-mode，idl-mode，pike-mode 和 awk-mode 作为前缀。该包目的是替换 c-mode.el，c++-mode.el 和 awk-mode.el。
+
+  A special word of thanks goes to Krishna Padmasola for his work in converting the original README file to Texinfo format. I’d also like to thank all the CC Mode victims who help enormously during the early beta stages of CC Mode’s development.
+
+  特别感谢 Krishna Padmasola，他将原本的 README 文件转为 Texinfo 格式。我也感谢所有 CC Mode 的使用者，他们在 CC Mode 开发的早期测试阶段提供了巨大帮助。
+
+* Footnotes
+
+[fn:1] A C-like scripting language with its roots in the LPC language used in some MUD engines. See http://pike.ida.liu.se/.
